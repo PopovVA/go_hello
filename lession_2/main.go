@@ -49,11 +49,11 @@ func diameterCircumference() {
 
 	r := math.Sqrt(s / p)
 
-	fmt.Printf("Радиус круга %2f \n", r)
+	fmt.Printf("Радиус круга %.2f \n", r)
 
 	c := float64(2 * p * r)
 
-	fmt.Printf("Длина круга %2f \n", c)
+	fmt.Printf("Длина круга %.2f \n", c)
 
 }
 
