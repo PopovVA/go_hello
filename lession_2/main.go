@@ -42,16 +42,15 @@ func diameterCircumference() {
 	fmt.Println("Задание №2. Диаметр и длина окружности по заданной площади круга")
 
 	var s float64
-	p := math.Pi
 
 	fmt.Println("Введите площадь круга: ")
 	fmt.Scanln(&s)
 
-	r := math.Sqrt(s / p)
+	r := math.Sqrt(s / math.Pi)
 
 	fmt.Printf("Радиус круга %.2f \n", r)
 
-	c := float64(2 * p * r)
+	c := float64(2 * math.Pi * r)
 
 	fmt.Printf("Длина круга %.2f \n", c)
 
