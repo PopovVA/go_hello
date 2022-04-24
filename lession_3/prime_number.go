@@ -13,11 +13,11 @@ func main() {
 	var n, res int64
 	fmt.Print("Введите число N: ")
 	fmt.Scanln(&n)
-
-	var i int64 = 0
-	for ; i <= n; i++ {
+  	var i int64
+	for i = 0; i <= n; i++ {
 		if big.NewInt(i).ProbablyPrime(0) {
 			fmt.Println(i, " - простое")
+      			res++
 		}
 	}
 
