@@ -16,20 +16,19 @@ func main() {
 }
 
 func fib(n int) int {
-    if cache[n] != 0 {
+	if cache[n] != 0 {
 		return cache[n]
 	}
-    if n == 0 {
-    	return 0
-    }
-    if n == 1 {
-    	return 1
-    }
-    a := fib(n - 1)
+	if n == 0 {
+		return 0
+	}
+	if n == 1 {
+		return 1
+	}
+	a := fib(n - 1)
 	b := fib(n - 2)
 
 	cache[n-1] = a
 	cache[n-2] = b
-
-    return a + b
+	return a + b
 }
