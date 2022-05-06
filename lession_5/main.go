@@ -1,4 +1,5 @@
 package main
+
 import "fmt"
 
 // 1. Напишите приложение, рекурсивно вычисляющее заданное из стандартного ввода число Фибоначчи.
@@ -9,6 +10,7 @@ import "fmt"
 var cache map[int]int = make(map[int]int)
 
 func main() {
+	cache[0], cache[1] = 0, 1
 	var a int
 	fmt.Println("Введите порядковый номер: ")
 	fmt.Scanln(&a)
@@ -16,19 +18,16 @@ func main() {
 }
 
 func fib(n int) int {
-	if cache[n] != 0 {
-		return cache[n]
-	}
-	if n == 0 {
-		return 0
-	}
-	if n == 1 {
-		return 1
-	}
-	a := fib(n - 1)
-	b := fib(n - 2)
+	key, hasKey := cache[n]
+	if hasKey {
+		return key
+	} else {
+		a := fib(n - 1)
+		b := fib(n - 2)
 
-	cache[n-1] = a
-	cache[n-2] = b
-	return a + b
+		cache[n-1] = a
+		cache[n-2] = b
+		return a + b
+	}
+
 }
