@@ -41,9 +41,9 @@ func (config *FlagConfig) validate() (err error) {
 func (config *FlagConfig) Read() error {
 
 	config.port = flag.Int("port", 0, "port for connection to a database")
-	config.app_id = flag.String("app_id", "", "application id")
+	config.app_id = flag.String("appId", "", "application id")
 	config.token = flag.String("token", "", "firebase token")
-	config.db_path = flag.String("db_path", "", "database path")
+	config.db_path = flag.String("DBPath", "", "database path")
 	flag.Parse()
 
 	if err := config.validate(); err != nil {
@@ -84,9 +84,9 @@ func (config *EnvConfig) Read() error {
 	} else {
 		config.port = p
 	}
-	config.token = os.Getenv("db_path")
+	config.token = os.Getenv("DBPath")
 	config.token = os.Getenv("token")
-	config.app_id = os.Getenv("app_id")
+	config.app_id = os.Getenv("appId")
 
 	flag.Parse()
 
