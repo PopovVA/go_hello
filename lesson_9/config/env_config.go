@@ -10,22 +10,23 @@ import (
 )
 
 type EnvConfig struct {
-	port   int
-	dbPath string
-	appId  string
-	token  string
+	Port   int
+	DbPath string
+	AppId  string
+	Token  string
 }
 
 func (config *EnvConfig) Print() {
 	fmt.Println("Config:")
-	fmt.Printf("Port: %v\n", config.port)
-	fmt.Printf("App Id: %v\n", config.appId)
-	fmt.Printf("DB Path: %v\n", config.dbPath)
-	fmt.Printf("Token: %v\n", config.token)
+	fmt.Printf("Port: %v\n", config.Port)
+	fmt.Printf("App Id: %v\n", config.AppId)
+	fmt.Printf("DB Path: %v\n", config.DbPath)
+	fmt.Printf("Token: %v\n", config.Token)
+	fmt.Println()
 }
 
 func (config *EnvConfig) validate() error {
-	url, err := url.Parse(config.dbPath)
+	url, err := url.Parse(config.DbPath)
 	if url.String() == "" {
 		return errors.New("dbPath is empty")
 	}
@@ -38,11 +39,11 @@ func (config *EnvConfig) Read() error {
 	if err != nil {
 		fmt.Printf("Unable to read the port: %v\n", err.Error())
 	} else {
-		config.port = p
+		config.Port = p
 	}
-	config.token = os.Getenv("DBPath")
-	config.token = os.Getenv("token")
-	config.appId = os.Getenv("appId")
+	config.DbPath = os.Getenv("dbPath")
+	config.Token = os.Getenv("token")
+	config.AppId = os.Getenv("appId")
 
 	flag.Parse()
 

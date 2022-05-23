@@ -22,12 +22,13 @@ func (config *JsonConfig) Print() {
 	fmt.Printf("App Id: %v\n", config.AppId)
 	fmt.Printf("DB Path: %v\n", config.DbPath)
 	fmt.Printf("Token: %v\n", config.Token)
+	fmt.Println()
 }
 
 func (config *JsonConfig) validate() (err error) {
 	url, err := url.Parse(config.DbPath)
 	if url.String() == "" {
-		return errors.New(err.Error())
+		return errors.New("dbPath is empty")
 	}
 	return err
 }

@@ -8,22 +8,23 @@ import (
 )
 
 type FlagConfig struct {
-	port   *int
-	dbPath *string
-	appId  *string
-	token  *string
+	Port   *int
+	DbPath *string
+	AppId  *string
+	Token  *string
 }
 
 func (config *FlagConfig) Print() {
 	fmt.Println("Config:")
-	fmt.Printf("Port: %v\n", *config.port)
-	fmt.Printf("App Id: %v\n", *config.appId)
-	fmt.Printf("DB Path: %v\n", *config.dbPath)
-	fmt.Printf("Token: %v\n", *config.token)
+	fmt.Printf("Port: %v\n", *config.Port)
+	fmt.Printf("App Id: %v\n", *config.AppId)
+	fmt.Printf("DB Path: %v\n", *config.DbPath)
+	fmt.Printf("Token: %v\n", *config.Token)
+	fmt.Println()
 }
 
 func (config *FlagConfig) validate() (err error) {
-	url, err := url.Parse(*config.dbPath)
+	url, err := url.Parse(*config.DbPath)
 	if url.String() == "" {
 		return errors.New("dbPath is empty")
 	}
@@ -32,10 +33,10 @@ func (config *FlagConfig) validate() (err error) {
 
 func (config *FlagConfig) Read() error {
 
-	config.port = flag.Int("port", 0, "port for connection to a database")
-	config.appId = flag.String("appId", "", "application id")
-	config.token = flag.String("token", "", "firebase token")
-	config.dbPath = flag.String("DBPath", "", "database path")
+	config.Port = flag.Int("port", 0, "port for connection to a database")
+	config.AppId = flag.String("appId", "", "application id")
+	config.Token = flag.String("token", "", "firebase token")
+	config.DbPath = flag.String("DBPath", "", "database path")
 	flag.Parse()
 
 	if err := config.validate(); err != nil {

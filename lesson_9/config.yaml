@@ -1,0 +1,4 @@
+port: 8080,
+dbPath: "https://localhost/"
+appId: "123"
+token: "token"

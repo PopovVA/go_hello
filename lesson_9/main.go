@@ -19,6 +19,14 @@ func main() {
 		jsonConfig.Print()
 	}
 
+	yamlConfig := config.YamlConfig{}
+	fmt.Println("YAML parsing...")
+	if err := yamlConfig.Read(); err != nil {
+		fmt.Printf("Unable to read the config: %v\n", err.Error())
+	} else {
+		yamlConfig.Print()
+	}
+
 	flagGonfig := config.FlagConfig{}
 	fmt.Println("Flags parsing...")
 	if err := flagGonfig.Read(); err != nil {
