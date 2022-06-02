@@ -4,13 +4,13 @@ import (
 	"testing"
 )
 
-type testCasePrimesCount struct {
+type testCaseCountPrimes struct {
 	input  int64
 	output int64
 }
 
-func TestPrimesCount(t *testing.T) {
-	testCases := []testCasePrimesCount{
+func TestCountPrimes(t *testing.T) {
+	testCases := []testCaseCountPrimes{
 		{
 			10,
 			4,

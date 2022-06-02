@@ -1,10 +1,17 @@
 package calculator
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
+
+func ExampleCalculate() {
+	res, _ := Calculate(10, 10, "+")
+	fmt.Println(res)
+	// Output: 20
+}
 
 func TestValidate(t *testing.T) {
 
