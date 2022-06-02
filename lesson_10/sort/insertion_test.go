@@ -10,6 +10,18 @@ type sliceSortTestCase struct {
 	output []int64
 }
 
+func BenchmarkInsertionSort(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		InsertionSort([]int64{0, 50, 20, 40, 40, 0})
+	}
+}
+
+func BenchmarkBubbleSort(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		BubbleSort([]int64{0, 50, 20, 40, 40, 0})
+	}
+}
+
 func TestInsertionSort(t *testing.T) {
 
 	testCases := []sliceSortTestCase{
